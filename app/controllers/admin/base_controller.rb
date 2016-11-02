@@ -1,8 +1,12 @@
 class Admin::BaseController < ActionController::Base
   protect_from_forgery with: :exception
 
+  protect_from_forgery with: :exception
+
   before_filter :authenticate
   helper_method :sign_in?, :current_user
+
+  layout "admin"
 
   def sign_in?
     !!session[:user_id]

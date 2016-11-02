@@ -9,7 +9,7 @@ class Admin::SessionsController < Admin::BaseController
     @user = User.where(email: params[:user][:email]).first
     if @user && @user.authenticate(params[:user][:password])
       sign_in @user
-      redirect_to admin_root_path
+      redirect_to admin_posts_path
     else
       redirect_to admin_sign_in_path
     end
