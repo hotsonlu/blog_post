@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::BaseController
-  skip_before_filter :authenticate, only: [:new, :create]
+  skip_before_action :authenticate, only: [:new, :create]
 
   def new
     @user = User.new
