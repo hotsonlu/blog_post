@@ -16,8 +16,14 @@ Rails.application.routes.draw do
 
     get :sign_out, to: 'sessions#destroy'
 
-    resources :posts
+    resources :posts do
+      collection do
+        post :preview
+      end
+      resources :comments
+    end
+
     root to: 'posts#index'
-  end
+    end
 
 end

@@ -34,6 +34,10 @@ class Admin::PostsController < Admin::BaseController
     end
   end
 
+  def preview
+    render plain: Post.render_html(post_params[:content] || "")
+  end
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy

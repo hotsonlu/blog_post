@@ -9,13 +9,14 @@
 
     <% @posts.each do |post| %>
       <div class="blog-post">
-        <h2 class="blog-post-title"><%= post.title %></h2>
+        <h2 class="blog-post-title"><%= link_to post.title, admin_post_path(post) %></h2>
         <p class="blog-post-meta">
-          <%= post.published_at %> by <%= post.author %>
+          <%= post.created_at %> by <%= post.author %>
 
         </p>
 
         <%= post.content %>
+
       </div><!-- /.blog-post -->
     <% end %>
 <!--
