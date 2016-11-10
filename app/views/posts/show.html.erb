@@ -11,44 +11,22 @@
       <div class="blog-post">
 
         <%= markdown(@post.content) %>
+
+        <!--
+          <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">Content</a></li>
+            <li role="presentation"><a href="#">Preview</a></li>
+          </ul>
+         -->
       </div><!-- /.blog-post -->
 
-<!--
-    <nav>
-      <ul class="pager">
-        <li><a href="#">Previous</a></li>
-        <li><a href="#">Next</a></li>
-      </ul>
-    </nav>
- -->
+
 
      <h2>Add a comment:</h2>
-     <%= form_for([@post, @post.comments.build]) do |f| %>
-       <p>
-         <%= f.label :commenter %><br>
-         <%= f.text_field :commenter %>
-       </p>
-       <p>
-         <%= f.label :body %><br>
-         <%= f.text_area :body %>
-       </p>
-       <p>
-         <%= f.submit %>
-       </p>
-     <% end %>
+        <%= render 'comments/form' %>
 
       <h2>Comments</h2>
-      <% @post.comments.each do |comment| %>
-        <p>
-          <strong>Commenter:</strong>
-          <%= comment.commenter %>
-        </p>
-
-        <p>
-          <strong>Comment:</strong>
-          <%= comment.body %>
-        </p>
-      <% end %>
+        <%= render @post.comments %>
 
   </div><!-- /.blog-main -->
 

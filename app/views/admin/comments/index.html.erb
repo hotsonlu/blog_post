@@ -1,0 +1,25 @@
+<table class="table table-striped table-hover datatable">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Published at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <th><%= comment.commenter %></th>
+        <td><%= comment.email %></td>
+        <td><%= comment.body %></td>
+        <td><%= comment.created_at %></td>
+        <td>
+          <%= link_to "Delete", admin_post_comment_path(@post, comment), method: 'DELETE', 'data-confirm'=> '确认删除?'%>
+
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
